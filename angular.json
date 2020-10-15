@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "desafio4"
+  "defaultProject": "desafio4",
+  "cli": {
+    "analytics": false
+  }
 }

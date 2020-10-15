@@ -1,21 +1,21 @@
 <mat-toolbar color="primary">
-    <span>Detalhes do contatos</span>
+    <span>Detalhes do contatos #{{id}}</span>
 </mat-toolbar>
 
-<div class="form">
+<form [formGroup]="contactForm" class="form" (click)="updateContact()">
     <mat-form-field appearance="standard">
         <mat-label>Nome</mat-label>
-        <input matInput>
+        <input matInput formControlName="name">
     </mat-form-field>
 
     <mat-form-field appearance="standard">
         <mat-label>Telefone</mat-label>
-        <input matInput>
+        <input matInput formControlName="phone">
     </mat-form-field>
 
-</div>
-
-<div class="actions">
-    <button routerLink="/contacts" mat-raised-button>Voltar para lista</button>
-    <button type="submit" mat-raised-button color="primary">Salvar</button>
-</div>
+    
+    <div class="actions">
+        <button routerLink="/contacts" mat-raised-button>Cancelar</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!contactForm.dirty ||contactForm.invalid">Salvar</button>
+    </div>
+</form>
